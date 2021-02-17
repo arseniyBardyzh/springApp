@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@Component
 public class MusicPlayer {
 
     @Value("${musicPlayer.name}")
@@ -31,10 +30,9 @@ public class MusicPlayer {
     private Music music3;
     public Random rand = new Random();
 
-    @Autowired
-    public MusicPlayer(@Qualifier("rockMusic") Music music1,
-                       @Qualifier("classicalMusic") Music music2,
-                       @Qualifier("jazzMusic") Music music3 ){
+    public MusicPlayer(Music music1,
+                        Music music2,
+                        Music music3 ){
         this.music1=music1;
         this.music2=music2;
         this.music3=music3;

@@ -5,12 +5,10 @@ import org.springframework.stereotype.Component;
 
 import static ru.bardyzh.springCourse.Genre.*;
 
-@Component("Computer")
 public class Computer {
     private int id;
     private MusicPlayer musicPlayer;
 
-    @Autowired
     public Computer(MusicPlayer musicPlayer) {
         this.id = 1;
         this.musicPlayer = musicPlayer;

@@ -1,13 +1,12 @@
 package ru.bardyzh.springCourse;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.w3c.dom.ls.LSOutput;
 
 public class TestSpring {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-                "applicationContext.xml"
-        );
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
         /*Music classicalMusic = context.getBean("musicBeanClassic", Music.class);
         System.out.println(classicalMusic.getSong());
