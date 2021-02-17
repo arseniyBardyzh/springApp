@@ -28,14 +28,20 @@ public class MusicPlayer {
     private Music music1;
     private Music music2;
     private Music music3;
+    private List<Music> musicList = new ArrayList<Music>();
+
     public Random rand = new Random();
 
-    public MusicPlayer(Music music1,
+    /*public MusicPlayer(Music music1,
                         Music music2,
                         Music music3 ){
         this.music1=music1;
         this.music2=music2;
         this.music3=music3;
+    }*/
+
+    public MusicPlayer(List<Music> musicList){
+        this.musicList = musicList;
     }
 
 
@@ -51,6 +57,10 @@ public class MusicPlayer {
                 return "Playing: ";
         }
     }
+
+    public String playMusic(){
+        return musicList.get(rand.nextInt(2)).getSong();
+    };
 
     /*public void playMusicList(){
         for(int i=0;i<musicList.size();i++){

@@ -13,4 +13,7 @@ public class RockMusic implements Music{
     public String getSong(int i) {
         return songs[i];
     }
+    public String getSong() {
+        return "We will Rock You";
+    }
 }

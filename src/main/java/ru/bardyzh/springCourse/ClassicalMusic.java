@@ -26,4 +26,7 @@ public class ClassicalMusic implements Music{
     public String getSong(int i) {
         return songs[i];
     }
+    public String getSong() {
+        return "Лебединое озеро";
+    }
 }
