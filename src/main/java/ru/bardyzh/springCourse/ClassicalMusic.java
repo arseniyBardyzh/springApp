@@ -5,10 +5,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ClassicalMusic implements Music{
 
-    private ClassicalMusic(){}
+    private static String[] songs = {"Лебединое озеро", "В пещере горного короля", "Танец рыцарей"};
 
-    public static ClassicalMusic getClassicalMusic(){
-        return new ClassicalMusic();
+    public ClassicalMusic(){
     }
 
     public void doMyInit(){
@@ -19,7 +18,7 @@ public class ClassicalMusic implements Music{
         System.out.println("Doing my Destroy");
     }
     @Override
-    public String getSong() {
-        return "Vengerian Rapsody";
+    public String getSong(int i) {
+        return songs[i];
     }
 }

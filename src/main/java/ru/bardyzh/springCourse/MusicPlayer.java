@@ -1,53 +1,42 @@
 package ru.bardyzh.springCourse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Component
 public class MusicPlayer {
-    
 
-    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rockMusic = rockMusic;
-    }
+    private Music music1;
+    private Music music2;
+    private Music music3;
+    public Random rand = new Random();
 
-    private Music music;
-    private String name;
-    private int volume;
-    private List<Music> musicList = new ArrayList<>();
-
-    public void doMyInit(){
-        System.out.println("Player are initialising");
-    }
-
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    public int getVolume() {
-        return volume;
+    @Autowired
+    public MusicPlayer(@Qualifier("rockMusic") Music music1,
+                       @Qualifier("classicalMusic") Music music2,
+                       @Qualifier("jazzMusic") Music music3 ){
+        this.music1=music1;
+        this.music2=music2;
+        this.music3=music3;
     }
 
 
-
-    public String playMusic(){
-        return "Playing: " + classicalMusic.getSong();
+    public String playMusic(Genre genre){
+        switch (genre.name()){
+            case "ROCK":
+                return "Playing: " + music1.getSong(rand.nextInt(2));
+            case "CLASSICAL":
+                return "Playing: " + music2.getSong(rand.nextInt(2));
+            case "JAZZ":
+                return "Playing: " + music3.getSong(rand.nextInt(2));
+            default:
+                return "Playing: ";
+        }
     }
 
     /*public void playMusicList(){
